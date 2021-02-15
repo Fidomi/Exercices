@@ -10,9 +10,8 @@ function Questionnaire(quest, rep1, rep2, rep3, rep4) {
   this.rep2 = rep2;
   this.rep3 = rep3;
   this.rep4 = rep4;
-}
-Questionnaire.prototype.createQuestionnaire = function () {
-  html = `<h3>${this.quest}</h3>
+  this.createQuestionnaire = function () {
+    html = `<h3>${this.quest}</h3>
       <label for="${this.rep1.id}+1">${this.rep1.texte}</label>
       <input type="checkbox" id="${this.rep1.id}" name="${this.rep1.id}">
       <label for="${this}+2">${this.rep2.texte}</label>
@@ -21,8 +20,9 @@ Questionnaire.prototype.createQuestionnaire = function () {
       <input type="checkbox" id="${this}+3" name="${this}+3">
       <label for="${this}+4">${this.rep4.texte}</label>
       <input type="checkbox" id="${this}+4" name="${this}+4">`;
-  $("#monQuestionnaire").innerHTML += html;
-};
+    $("#monQuestionnaire").innerHTML += html;
+  };
+}
 
 let questA = "Quelle est la couleur du cheval blanc d'Henri IV?";
 let repA1 = { texte: "blanc", valeur: true, id: "repA1" };
@@ -32,3 +32,12 @@ let repA4 = { texte: "gris", valeur: false, id: "repA4" };
 
 const questionnaireA = new Questionnaire(questA, repA1, repA2, repA3, repA4);
 questionnaireA.createQuestionnaire();
+
+let questB = "Ces villes sont-elles des villes française?";
+let repB1 = { texte: "Londres", valeur: false, id: "repB1" };
+let repB2 = { texte: "Lourdes", valeur: true, id: "repB2" };
+let repB3 = { texte: "Grenoble", valeur: true, id: "repB3" };
+let repB4 = { texte: "Madrid", valeur: false, id: "repB4" };
+
+const questionnaireB = new Questionnaire(questB, repB1, repB2, repB3, repB4);
+questionnaireB.createQuestionnaire();
