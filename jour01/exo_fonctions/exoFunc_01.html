@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salaire</title>
+  </head>
+  <body>
+    <h1>Calcul du salaire net</h1>
+    <form action="">
+      <label for="brut">Quel est votre salaire brut?</label>
+      <input type="number" id="brut" name="salaire" />
+      <input type="submit" name="envoyer" id="salaire" />
+    </form>
+    <br />
+    <h3>Votre salaire net est de :</h3>
+
+    <script>
+      const salaire = (brut) => {
+        let result = brut - (brut * 25) / 100;
+        return result;
+      };
+
+      document.querySelector("#salaire").addEventListener("click", (e) => {
+        e.preventDefault();
+        let salaireNet = salaire(document.querySelector("#brut").value);
+        document.querySelector("h3").innerText =
+          "Votre salaire net est de :" + salaireNet + " €";
+      });
+    </script>
+  </body>
+</html>
